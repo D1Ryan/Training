@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SAPI.Models.App_OrderAllot>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>销售的订单列表</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>销售分配订单列表</h3>
+    <h4>销售:@ViewBag.SName</h4>
+    <h4>资源:@ViewBag.RName</h4>
+    <h4>@ViewBag.SubTitle</h4>
+    <table class="table">
+        <tr>
+            <th>
+                订单号
+            </th>
+            <th>
+                资源ID
+            </th>
+            <th>
+                销售ID
+            </th>
+            <th>
+                用户
+            </th>
+            <th>
+                创建订单时间
+            </th>
+            <th>
+                支付时间
+            </th>
+        </tr>
+        @if ((Model != null) && (Model.Any()))
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResourceId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sales_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Create_Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pay_Time)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+    <p>
+        @Html.ActionLink("返回", "Allot", new { id = ViewBag.Resource_Id })
+    </p>
+</body>
+</html>

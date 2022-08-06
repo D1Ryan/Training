@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SAPI.Models.App_Resource>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>营销活动</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h2>营销活动列表</h2>
+    <table class="table">
+        <tr>
+            <th>
+                资源ID
+            </th>
+            <th>
+                资源名称
+            </th>
+            <th>
+                资源类型
+            </th>
+            <th>
+                简介
+            </th>
+
+            <th>
+                销售状态
+            </th>
+            <th>
+                价格(分)
+            </th>
+            <th>
+                浏览数
+            </th>
+
+            <th>
+                创建时间
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Resource_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sale_Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.View_Count)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_Time)
+                </td>
+                <td>
+                    @Html.ActionLink("销售分配", "Allot", new { id = item.RowId }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.RowId })
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

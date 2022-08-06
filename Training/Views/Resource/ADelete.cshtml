@@ -1,0 +1,133 @@
+﻿@model SAPI.Models.App_SalesAllot
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ADelete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>App_SalesAllot</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Resource_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resource_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sales_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sales_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Private_Code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Private_Code)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.QrCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QrCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Is_Enable)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Is_Enable)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sort_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sort_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Change_Count)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Change_Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Term_Count)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Term_Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Post_Count)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Post_Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Create_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Create_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Expire_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Expire_Time)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="确认删除" class="btn btn-default" /> |
+                @Html.ActionLink("返回", "Allot", new { id = Model.Resource_Id })
+            </div>
+        }
+    </div>
+</body>
+</html>

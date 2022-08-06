@@ -1,0 +1,306 @@
+﻿@model SAPI.Models.App_Order
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>查看订单详情</h3>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RowId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RowId)
+            </dd>
+            <dt>
+                订单号
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OrderId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.UnionId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UnionId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.OpenId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.OpenId)
+            </dd>
+            <dt>
+                用户昵称
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+            <dt>
+                资源编号
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ResourceId)
+            </dd>
+            <dt>
+                资源类型
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Resource_Type)
+            </dd>
+            <dt>
+                资源名称
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Purchase_Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Purchase_Name)
+            </dd>
+            <dt>
+                价格(分)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cash_Pay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cash_Pay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Card_Pay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Card_Pay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+
+            <dt>
+                已支付金额(分)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Paid_Amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoPaid_Amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoPaid_Amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.No_Invoiced)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.No_Invoiced)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Invoiced_Amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Invoiced_Amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Show_City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Show_City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Show_Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Show_Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Show_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Show_Time)
+            </dd>
+
+            <dt>
+                订单状态
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Order_Status)<span class="remark ">备注:1:有效;0:无效</span>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Audit_Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Audit_Status)
+            </dd>
+            <dt>
+                支付流水号
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PayId)
+            </dd>
+            <dt>
+                支付状态
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Pay_Status)<span class="remark ">备注:1:是;0:否</span>
+            </dd>
+            <dt>
+                支付方式
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Pay_Way)
+            </dd>
+            <dt>
+                支付时间
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pay_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Refund_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Refund_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Settle_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Settle_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Expire_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Expire_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Client_Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Client_Type)
+            </dd>
+            <dt>
+                手机号
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.User_Phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User_Mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User_Mail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Creator)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Creator)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Auditor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Auditor)
+            </dd>
+
+            <dt>
+                创建时间
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Create_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Update_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Update_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Audit_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Audit_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+            <dt>
+                销售编号
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SalesId)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("返回", "Index")
+    </p>
+</body>
+</html>

@@ -1,0 +1,188 @@
+﻿@model SAPI.Models.App_Resource
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>查看资源详情 </h3><br />
+    <h4>@ViewBag.Title</h4>
+    <div>        
+        <dl class="dl-horizontal">
+            <dt>
+                资源ID
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RowId)
+            </dd>
+            <dt>
+                资源名称
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt>
+                简介
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Summary)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Img_Url)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Img_Url)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CImg_Url)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CImg_Url)
+            </dd>
+            <dt>
+                销售状态
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Sale_Status)<span class="remark ">备注:1:有效;0:无效</span>
+            </dd>
+
+            <dt>
+                价格(分)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Line_Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Line_Price)
+            </dd>
+
+            <dt>
+                浏览数
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.View_Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Total_Chapters)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total_Chapters)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubSet_Count)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubSet_Count)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Audio_Length)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Audio_Length)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Describe)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Describe)
+            </dd>
+
+            <dt>
+                资源类型
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resource_Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content_Url)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content_Url)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Creator)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Creator)
+            </dd>
+
+            <dt>
+                创建时间
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Create_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Update_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Update_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("返回", "Index")
+    </p>
+</body>
+</html>

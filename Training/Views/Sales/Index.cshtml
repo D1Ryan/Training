@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SAPI.Models.App_Sales>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>销售人员管理</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h2>销售人员管理</h2>
+    <table class="table">
+        <tr>
+            <th>
+                销售ID
+            </th>
+            <th>
+                销售名称
+            </th>
+            <th>
+                销售类型
+            </th>
+            <th>
+                二维码
+            </th>
+            <th>
+                启用状态
+            </th>
+            <th>
+                创建时间
+            </th>
+            <th>
+                @Html.ActionLink("新增", "Create")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales_Type)
+                </td>
+                <td>
+                    <!-- Handover时，popup原图 -->
+                    <div>
+                        <img src="@ViewBag.ImgPrix@item.QrCode" width="100" height="100" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Is_Enable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create_Time)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Sales_Id }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.Sales_Id }) |
+                    @Html.ActionLink("删除", "Delete", new { id = item.Sales_Id })
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

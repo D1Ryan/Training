@@ -1,0 +1,38 @@
+﻿@model SAPI.Models.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <!--Html.BeginForm()等同于在html代码里写<form>.....</form>是一样的-->
+    @using (Html.BeginForm())
+    {
+        <div>
+            用户名：
+        </div>
+        <div>
+            <!--创建用户名文本框，等同于<input type="text" />-->
+            @Html.TextBoxFor(model => model.UserName)
+        </div>
+        <div>
+            密码：
+        </div>
+        <div>
+            <!--创建用户名文本框，等同于<input type="password" />-->
+            @Html.PasswordFor(model => model.Password)
+        </div>
+        <div>
+            <input type="submit" value="登录" />
+        </div>
+    }
+
+
+</body>
+</html>
