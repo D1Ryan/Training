@@ -1,0 +1,117 @@
+﻿@model SAPI.Models.App_Sales
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>查看</h3>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                姓名
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.English_Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.English_Name)
+            </dd>
+
+            <dt>
+                销售类型
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sales_Type) <span class="remark ">备注:社群:1;电销:2;网销:3</span>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mail)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mail)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Private_Code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Private_Code)
+            </dd>
+
+            <dt>
+                二维码
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QrCode)
+                <div style="float:left;vertical-align:top;margin-left:20px;">
+                    <img id="imgQr" width="100" height="100" src="@Model.QrCodeUrl" />
+                </div>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Summary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Summary)
+            </dd>
+
+            <dt>
+                启用状态
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Is_Enable)
+            </dd>
+
+            <dt>
+                创建时间
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Create_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Update_Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Update_Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("编辑", "Edit", new { id = Model.Sales_Id }) |
+        @Html.ActionLink("返回", "Index")
+    </p>
+</body>
+</html>

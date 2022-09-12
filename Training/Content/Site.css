@@ -1,0 +1,152 @@
+﻿/*页面*/
+body { padding-top: 10px; padding-left: 5px; color: #999; }
+/*输入框*/
+input[type=text], input[type=password], input[type=number], input[type=email], select { height: 30px; width: 200px; min-width: 90px; margin-left: 10px; border: 1px solid #dddddd; }
+/*多行输入框*/
+textarea { margin-left: 10px; border: 1px solid #dddddd; }
+.remark { color: #b94a48; padding-left: 50px; font-style: italic }
+/*复选框-高宽*/
+input[type=checkbox] { height: 15px; width: 15px; padding: 0 5px 0 0; }
+/*单选框-高宽*/
+input[type=radio] { height: 15px; width: 50px; margin-left: 5px; }
+/*文件框-高宽*/
+input[type=file] { height: 30px; width: 395px; margin-left: 10px; border: 1px solid #dddddd; }
+/*日期框-高宽*/
+input[type=date] { height: 30px; width: 130px; margin-left: 10px; border: 1px solid #dddddd; }
+/*时间框-高宽*/
+input[type=time] { height: 30px; width: 90px; margin-left: 10px; border: 1px solid #dddddd; }
+/*按钮-高宽*/
+input[type=button] { border-radius: 3px; }
+/*提交-高宽*/
+input[type=submit] { border-radius: 3px; }
+/*重置-高宽*/
+input[type=reset] { width: 102px; height: 32px; color: #fff; border-radius: 3px; border-width: 0; }
+/*区块-高宽*/
+span { font-weight: normal; }
+/*按钮及按钮背景begin*/
+/*查询按钮*/
+.btnquery { width: 95px; height: 32px; margin-left: 5px; color: #ffffff; border-width: 0; background: url(/Content/icons/search.png) no-repeat left; }
+/*查询按钮背景*/
+.btnquerybg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #f59300; display: inline-block; }
+/*新增按钮*/
+.btnnew { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/add.png) no-repeat left; }
+/*新增按钮背景*/
+.btnnewbg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #72cf75; display: inline-block; }
+/*修改按钮*/
+.btnedit { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/modify.png) no-repeat left; }
+/*停用按钮*/
+.btnstop { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/stop.png) no-repeat left; }
+/*停用按钮背景*/
+.btnstopbg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #77b7ea; display: inline-block; }
+/*删除按钮*/
+.btndelete { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/delete.png) no-repeat left; }
+/*删除按钮背景*/
+.btndeletebg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #f06d6c; display: inline-block; }
+/*转换按钮*/
+.btntransfer { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/transfer.png) no-repeat left; }
+/*转换按钮背景*/
+.btntransferbg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #8cabe4; display: inline-block; }
+/*导入按钮*/
+.btnimp { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/upload.png) no-repeat left; }
+/*导出按钮*/
+.btnexp { width: 95px; height: 32px; color: #fff; margin-left: 5px; border-width: 0; background: url(/Content/icons/download.png) no-repeat left; }
+/*导入/导出按钮背景*/
+.btnimpbg { width: 102px; height: 32px; border-width: 0; border-radius: 3px; margin-left: 10px; background: #5ddcc4; display: inline-block; }
+/*无图按钮背景*/
+.btntextbg { width: 102px; height: 32px; margin-left: 10px; display: inline-block; }
+/*日期按钮背景*/
+.btndate { width: 60px; height: 32px; background-color: #faefef; border: 1px solid #e9afaf; }
+/*浅绿按钮1（全选）*/
+.btngreen1 { width: 102px; height: 32px; border-width: 0; background: #6ad28e; }
+/*浅绿按钮2（保存|导入）*/
+.btngreen2 { width: 102px; height: 32px; border-width: 0; background: #5ddcc4; }
+/*浅综按钮1（全不选）*/
+.btnbrown { width: 102px; height: 32px; border-width: 0; background: #f58364; }
+/*暗蓝按钮1（展开）*/
+.btnblue1 { width: 102px; height: 32px; border-width: 0; background: #87a2c7; }
+/*浅综按钮2（收起）*/
+.btnbrown2 { width: 102px; height: 32px; border-width: 0; background: #d9b484; }
+/*灰按钮（返回）*/
+.btngray { width: 102px; height: 32px; border-width: 0; background: #d7d2d2; }
+/*浅蓝按钮2（重置）*/
+.btnblue2 { width: 102px; height: 32px; border-width: 0; background: #77b7ea; }
+/*按钮及按钮背景end*/
+/*标题及分块start*/
+/*页顶标题*/
+.title { height: 40px; font-size: 16px; color: #666; font-weight: bold; }
+/*行标题*/
+.rowtitle { height: 32px; margin-top: 10px; margin-left: 50px; font-size: 16px; font-weight: bold; }
+/*只读输入框*/
+.readonly { background-color: #ebebe4; }
+/*短输入框*/
+.shortInput { width: 100px; }
+/*分两列的子标题*/
+.halftitle { height: 32px; width: 48%; min-width: 320px; margin-left: 10px; text-align: center; font-size: 16px; background: #fcf2e6; display: inline-block; border: 1px solid #f3d1aa; }
+/*分两列的列表区块*/
+.halflist { width: 48%; min-width: 320px; margin-left: 10px; vertical-align: top; display: inline-block; }
+/*全宽三分之一列的子标题*/
+.onethirdtitle { height: 32px; width: 30%; min-width: 243px; margin-left: 10px; text-align: center; font-size: 16px; background: #fcf2e6; display: inline-block; border: 1px solid #f3d1aa; }
+/*全宽三分之一的列表区块*/
+.onethirdlist { width: 30%; min-width: 243px; margin-left: 10px; vertical-align: top; display: inline-block; }
+/*全宽三分之一的查询/编辑项标题*/
+.onethirditem { width: 30%; min-width: 243px; color: #000; display: inline-block; margin-left: 10px; text-align: right; margin-right: 5px; }
+/*全宽三分之一的查询/编辑必填项标题*/
+.onethirdrequireditem { width: 30%; min-width: 243px; color: red; display: inline-block; margin-left: 10px; text-align: right; margin-right: 5px; }
+/*全宽三分之一的显示项*/
+.onethirddisplay { width: 30%; min-width: 243px; color: #000; margin-left: 10px; display: inline-block; }
+/*左四成宽的列表区块*/
+.leftsublist { width: 38%; min-width: 320px; margin-left: 10px; vertical-align: top; display: inline-block; }
+/*左四成宽的子标题*/
+.leftsubtitle { height: 32px; width: 38%; min-width: 320px; margin-left: 10px; text-align: center; font-size: 16px; background: #fcf2e6; display: inline-block; border: 1px solid #f3d1aa; }
+/*右六成宽的列表区块*/
+.rightmainlist { width: 58%; min-width: 480px; margin-left: 10px; vertical-align: top; display: inline-block; }
+/*右六成宽的子标题*/
+.rightmaintitle { height: 32px; width: 58%; min-width: 480px; margin-left: 10px; text-align: center; font-size: 16px; background: #fcf2e6; display: inline-block; border: 1px solid #f3d1aa; }
+/*左四成宽的显示/编辑行*/
+.leftitem { min-width: 320px; width: 38%; color: #000; display: table-cell; text-align: right; margin-right: 5px; }
+/*左四成宽的显示/编辑必填项标题*/
+.leftrequireditem { min-width: 320px; width: 38%; color: red; display: table-cell; text-align: right; margin-right: 5px; }
+/*向右相对位移*/
+.moveright { position: relative; left: 50px; }
+/*查询区域背景*/
+.filterblock { padding-top: 10px; background: #fff; width: 100%; vertical-align: top; }
+/*查询/编辑行*/
+.filterrow { width: 100%; height: 40px; vertical-align: middle; }
+/*查询/编辑项标题*/
+.inputitem { min-width: 100px; width: 200px; color: #000; display: table-cell; text-align: right; margin-right: 5px; }
+/*查询/编辑必填项标题*/
+.requireditem { min-width: 100px; width: 200px; color: red; display: table-cell; text-align: right; margin-right: 5px; }
+/*查询/编辑输入值，单列*/
+.inputarea { min-width: 180px; width: 500px; padding-left: 30px; display: table-cell; text-align: left; }
+.nopadinputrow { min-width: 180px; width: 500px; display: table-cell; text-align: left; }
+/*显示/编辑格，多列*/
+.displayarea { min-width: 200px; width: 330px; padding-left: 30px; display: table-cell; text-align: left; }
+/*标题及分块end*/
+/*ajax loading show image*/
+.smallLoadingImg { width: 100%; height: 65px; vertical-align: middle; text-align: center; }
+/*数据列表样式start*/
+.datalist th { height: 40px; color: #444; font-size: 14px; background: #e5e5e7; }
+.datalist td { height: 36px; color: #727378; font-size: 14px; }
+.datalist tr:nth-child(even) { background: #f7f7f7; border: 1px solid #eaeced; }
+.datalist tr { background: #fff; }
+
+/*列表页表头*/
+th { color: #444; font-size: 14px; padding-left: 10px; }
+/*列表页数据行*/
+td { color: #727378; font-size: 14px; }
+/*数据列表样式end*/
+/*超链接*/
+a.edit, a.delete { color: #337ab7; }
+    /*编辑超链接*/
+    a.edit:hover, a.delete:hover { color: #0e5983; }
+/*分页样式start*/
+.batch { cursor: pointer; }
+.dataListEdit { height: 36px; line-height: 36px; background: #f8f8f8; padding: 0px 0px 0px 0px; position: relative; }
+    .dataListEdit .batch { background: #1c587b; height: 20px; line-height: 20px; margin: 8px 6px 8px 0px; color: #FFF; padding: 0 10px; display: block; float: left; }
+.page { font-size: 14px; position: absolute; right: 22px; _right: 32px; top: 0px; _top: 6px; }
+    .page a.bt { background: #eee; color: #000; }
+    .page a { display: inline; background: #FFF; width: 20px; padding: 1px 7px; margin-right: 5px; }
+    .page .summary { display: inline; padding: 1px 4px 0 7px; margin-right: 2px; }
+    .page input { cursor: pointer; height: 25px; width: 40px; padding: 0; line-height: 25px; font-size: 14px; -webkit-text-size-adjust: none; margin-right: 4px; margin-bottom: 3px; text-align: center; }
+    .page a.hot, .page a:hover { background: #c81c1a; color: #FFF; }
+/*分页样式end*/

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<SAPI.Models.App_SalesAllot>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>销售分配</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>销售分配:@ViewBag.RName</h3>
+    <h4>@ViewBag.SubTitle</h4>
+    <table class="table">
+        <tr>
+            <th>
+                销售ID
+            </th>
+            <th>
+                销售名称
+            </th>
+            <th>
+                二维码
+            </th>
+            <th>
+                过期时间
+            </th>
+            <th>
+                自动切换值
+            </th>
+            <th>
+                本轮已分配数
+            </th>
+            <th>
+                已分配总数
+            </th>
+            <th>
+                查看用户
+            </th>
+            <th>
+                开启状态
+            </th>
+            <th>
+                @Html.ActionLink("新增销售分配", "ACreate", new { id = ViewData["id"] }) |  @Html.ActionLink("返回", "Index")
+            </th>
+        </tr>
+        @if ((Model != null) && (Model.Any()))
+        {
+            foreach (var item in Model)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sales_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <!-- Handover时，popup原图 -->
+            <div>
+                <img src="@ViewBag.ImgPrix@item.QrCode" width="100" height="100" />
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expire_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Change_Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Term_Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post_Count)
+        </td>
+        <td>
+            <div> @Html.ActionLink("查看用户", "SOrders", new { rid = item.Resource_Id, sid = item.Sales_Id })</div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Is_Enable)
+        </td>
+        <td>
+            @Html.ActionLink("上移", "MoveUp", new { rid = item.RowId,sid = ViewData["id"] }) |
+            @Html.ActionLink("下移", "MoveDown", new { rid = item.RowId, sid = ViewData["id"] }) |
+            @Html.ActionLink("修改", "AEdit", new { id = item.RowId }) |
+            @Html.ActionLink("删除", "ADelete", new { id = item.RowId })
+        </td>
+    </tr>
+            }
+        }
+    </table>
+    <p>
+        @Html.ActionLink("返回", "Index")
+    </p>
+</body>
+</html>

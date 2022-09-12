@@ -1,0 +1,2355 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- EF Runtime content -->
+    <edmx:Runtime>
+        <!-- SSDL content -->
+        <edmx:StorageModels>
+        <Schema Namespace="SAPI.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="App_Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="RecordType" Type="varchar" MaxLength="50" />
+          <Property Name="OwnerID" Type="int" Nullable="false" />
+          <Property Name="CRMAccountId" Type="varchar" MaxLength="50" />
+          <Property Name="CardNo" Type="varchar" MaxLength="50" />
+          <Property Name="CardAmount" Type="int" />
+          <Property Name="RemainBalance" Type="int" />
+          <Property Name="AccountStatus" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPhone" Type="varchar" MaxLength="50" />
+          <Property Name="UserMail" Type="varchar" MaxLength="50" />
+          <Property Name="SalesName" Type="varchar" MaxLength="50" />
+          <Property Name="SalesId" Type="varchar" MaxLength="50" />
+          <Property Name="SalesCRMUserId" Type="varchar" MaxLength="50" />
+          <Property Name="SalesMail" Type="varchar" MaxLength="50" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="App_Advert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Img" Type="varchar" MaxLength="100" />
+          <Property Name="AdUrl" Type="varchar" MaxLength="200" />
+          <Property Name="Position" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="App_AliPay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="notify_time" Type="datetime" Nullable="false" />
+          <Property Name="notify_type" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="notify_id" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="app_id" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="charset" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="version" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="sign_type" Type="varchar" MaxLength="50" />
+          <Property Name="sign" Type="varchar" MaxLength="50" />
+          <Property Name="trade_no" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="out_trade_no" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="out_biz_no" Type="varchar" MaxLength="64" />
+          <Property Name="buyer_id" Type="varchar" MaxLength="16" />
+          <Property Name="buyer_logon_id" Type="varchar" MaxLength="100" />
+          <Property Name="seller_id" Type="varchar" MaxLength="30" />
+          <Property Name="seller_email" Type="varchar" MaxLength="100" />
+          <Property Name="trade_status" Type="varchar" MaxLength="32" />
+          <Property Name="total_amount" Type="money" />
+          <Property Name="receipt_amount" Type="money" />
+          <Property Name="invoice_amount" Type="money" />
+          <Property Name="buyer_pay_amount" Type="money" />
+          <Property Name="point_amount" Type="money" />
+          <Property Name="refund_fee" Type="money" />
+          <Property Name="subject" Type="nvarchar" MaxLength="256" />
+          <Property Name="body" Type="nvarchar" MaxLength="400" />
+          <Property Name="gmt_create" Type="datetime" />
+          <Property Name="gmt_payment" Type="datetime" />
+          <Property Name="gmt_refund" Type="datetime" />
+          <Property Name="gmt_close" Type="datetime" />
+          <Property Name="fund_bill_list" Type="nvarchar" MaxLength="512" />
+          <Property Name="passback_params" Type="nvarchar" MaxLength="512" />
+          <Property Name="voucher_detail_list" Type="nvarchar(max)" />
+          <Property Name="Create_Time" Type="datetime" />
+          <Property Name="Is_Synced" Type="bit" />
+          <Property Name="Sync_Time" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="App_ApiAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountKey" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LimitIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApiType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IsActivity" Type="bit" Nullable="false" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="ExpireTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="App_Consume">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountID" Type="varchar" MaxLength="50" />
+          <Property Name="AccountNo" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="ResourceType" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PurchaseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaidAmount" Type="int" />
+          <Property Name="PayStatus" Type="int" />
+          <Property Name="PayWay" Type="varchar" MaxLength="50" />
+          <Property Name="PayTime" Type="datetime" />
+          <Property Name="RefundTime" Type="datetime" />
+          <Property Name="SettleTime" Type="datetime" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="ClientType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Auditor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="AuditTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="App_LiveBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LiveId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BookTime" Type="datetime" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="LiveUrl" Type="varchar" MaxLength="500" />
+          <Property Name="RePlayUrl" Type="varchar" MaxLength="500" />
+          <Property Name="HasRePlay" Type="bit" Nullable="false" />
+          <Property Name="HasLive" Type="bit" Nullable="false" />
+          <Property Name="HasWPush" Type="bit" Nullable="false" />
+          <Property Name="HasSms" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Updator" Type="varchar" MaxLength="99" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Reserve1" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="App_LiveVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Summary" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="FrontPage" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CourseDetail" Type="varchar" MaxLength="5000" Nullable="false" />
+          <Property Name="SaleTime" Type="datetime" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="LiveUrl" Type="varchar" MaxLength="500" />
+          <Property Name="RePlayUrl" Type="varchar" MaxLength="500" />
+          <Property Name="IsTop" Type="bit" Nullable="false" />
+          <Property Name="IsEnabled" Type="bit" Nullable="false" />
+          <Property Name="Booked" Type="int" />
+          <Property Name="Watched" Type="int" />
+          <Property Name="LiveStatus" Type="int" />
+          <Property Name="Creator" Type="varchar" MaxLength="99" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Updator" Type="varchar" MaxLength="99" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Reserve1" Type="varchar" MaxLength="99" />
+        </EntityType>
+        <EntityType Name="App_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UnionId" Type="varchar" MaxLength="50" />
+          <Property Name="OpenId" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerId" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerLogId" Type="varchar" MaxLength="100" />
+          <Property Name="SalesId" Type="int" />
+          <Property Name="Introducer" Type="int" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="ResourceType" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PurchaseName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="CashPay" Type="int" />
+          <Property Name="CardPay" Type="int" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="PaidAmount" Type="int" />
+          <Property Name="NoPaidAmount" Type="int" />
+          <Property Name="NoInvoiced" Type="int" />
+          <Property Name="InvoicedAmount" Type="int" />
+          <Property Name="ShowCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShowAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="ShowTime" Type="datetime" />
+          <Property Name="OrderStatus" Type="int" Nullable="false" />
+          <Property Name="AuditStatus" Type="int" />
+          <Property Name="PayStatus" Type="int" />
+          <Property Name="PayId" Type="varchar" MaxLength="50" />
+          <Property Name="PayWay" Type="varchar" MaxLength="50" />
+          <Property Name="PayTime" Type="datetime" />
+          <Property Name="RefundTime" Type="datetime" />
+          <Property Name="SettleTime" Type="datetime" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="ClientType" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPhone" Type="varchar" MaxLength="50" />
+          <Property Name="UserMail" Type="varchar" MaxLength="50" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Auditor" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="AuditTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="Reserve1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Reserve2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Reserve3" Type="nvarchar" MaxLength="500" />
+          <Property Name="Reserve4" Type="nvarchar" MaxLength="500" />
+          <Property Name="Reserve5" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="App_OrderAllot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="SalesId" Type="int" Nullable="false" />
+          <Property Name="PaidAmount" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UnionId" Type="varchar" MaxLength="50" />
+          <Property Name="OpenId" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerId" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerLogId" Type="varchar" MaxLength="100" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="PayTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_OrderSS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="UnionId" Type="varchar" MaxLength="50" />
+          <Property Name="OpenId" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerId" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerLogId" Type="varchar" MaxLength="100" />
+          <Property Name="SalesId" Type="int" />
+          <Property Name="Introducer" Type="int" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="ResourceType" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PurchaseName" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="CashPay" Type="int" />
+          <Property Name="CardPay" Type="int" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="PaidAmount" Type="int" />
+          <Property Name="NoPaidAmount" Type="int" />
+          <Property Name="NoInvoiced" Type="int" />
+          <Property Name="InvoicedAmount" Type="int" />
+          <Property Name="ShowCity" Type="varchar" MaxLength="100" />
+          <Property Name="ShowAddress" Type="varchar" MaxLength="512" />
+          <Property Name="ShowTime" Type="datetime" />
+          <Property Name="OrderStatus" Type="int" Nullable="false" />
+          <Property Name="AuditStatus" Type="int" />
+          <Property Name="PayStatus" Type="int" />
+          <Property Name="PayId" Type="varchar" MaxLength="50" />
+          <Property Name="PayWay" Type="varchar" MaxLength="50" />
+          <Property Name="PayTime" Type="datetime" />
+          <Property Name="RefundTime" Type="datetime" />
+          <Property Name="SettleTime" Type="datetime" />
+          <Property Name="ExpireTime" Type="datetime" />
+          <Property Name="ClientType" Type="varchar" MaxLength="100" />
+          <Property Name="UserPhone" Type="varchar" MaxLength="50" />
+          <Property Name="UserMail" Type="varchar" MaxLength="50" />
+          <Property Name="Creator" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Auditor" Type="varchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="AuditTime" Type="datetime" />
+          <Property Name="Remark" Type="varchar" MaxLength="999" />
+          <Property Name="Reserve1" Type="varchar" MaxLength="999" />
+          <Property Name="Reserve2" Type="varchar" MaxLength="999" />
+          <Property Name="Reserve3" Type="varchar" MaxLength="999" />
+          <Property Name="Reserve4" Type="varchar" MaxLength="999" />
+          <Property Name="Reserve5" Type="int" />
+          <Property Name="PayChannel" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="App_OrderStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BookerId" Type="int" Nullable="false" />
+          <Property Name="TraineeId" Type="int" Nullable="false" />
+          <Property Name="TraineeName" Type="varchar" MaxLength="50" />
+          <Property Name="TraineeCRMCId" Type="varchar" MaxLength="50" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="StudyDate" Type="datetime" />
+          <Property Name="StudyStatus" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="CheckInTime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_Register">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CRMCId" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="ResourceType" Type="int" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="ResourceName" Type="varchar" MaxLength="200" />
+          <Property Name="ItemCount" Type="int" />
+          <Property Name="PayStatue" Type="varchar" MaxLength="50" />
+          <Property Name="PayWay" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Img" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResourceType" Type="int" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="ImgUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="CImgUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SaleStatus" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="LinePrice" Type="int" Nullable="false" />
+          <Property Name="ViewCount" Type="int" />
+          <Property Name="TotalChapters" Type="int" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubSetCount" Type="int" />
+          <Property Name="AudioLength" Type="int" />
+          <Property Name="DetailDesc" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContentUrl" Type="nvarchar" MaxLength="999" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="App_Sales">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnglishName" Type="varchar" MaxLength="50" />
+          <Property Name="SalesType" Type="int" Nullable="false" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="PrivateCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="QrCode" Type="varchar" MaxLength="500" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_SalesAllot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="SalesId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrivateCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="QrCode" Type="varchar" MaxLength="500" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="SortId" Type="int" Nullable="false" />
+          <Property Name="ChangeCount" Type="int" Nullable="false" />
+          <Property Name="TermCount" Type="int" Nullable="false" />
+          <Property Name="PostCount" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="ExpireTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="App_SMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SmsKey" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="SmsType" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="WorkDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ValCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsVerify" Type="bit" Nullable="false" />
+          <Property Name="IsSended" Type="bit" Nullable="false" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+          <Property Name="RetryTime" Type="int" Nullable="false" />
+          <Property Name="BackContent" Type="nvarchar(max)" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="ExpireTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="App_StudyHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TraineeId" Type="int" Nullable="false" />
+          <Property Name="ResourceId" Type="int" Nullable="false" />
+          <Property Name="ScheduleId" Type="int" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudyWay" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudySeconds" Type="int" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="StudyTime" Type="datetime" />
+          <Property Name="StudyStatus" Type="int" />
+          <Property Name="Score" Type="float" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_UserCalender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="OrderId" Type="varchar" MaxLength="50" />
+          <Property Name="EventType" Type="int" />
+          <Property Name="ResourceId" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="500" />
+          <Property Name="Img" Type="varchar" MaxLength="500" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="StudyTime" Type="datetime" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Place" Type="varchar" MaxLength="50" />
+          <Property Name="CheckStatus" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserPwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="AllowLogin" Type="int" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="DateOfLastLogin" Type="datetime" />
+          <Property Name="LoginCount" Type="int" />
+          <Property Name="SourceId" Type="int" />
+          <Property Name="HandleUser" Type="int" />
+          <Property Name="HandleDate" Type="datetime" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="IsSendEmail" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="SendEmailDate" Type="datetime" />
+          <Property Name="HandleStatusId" Type="int" />
+          <Property Name="FromId" Type="int" />
+          <Property Name="IsActiveEmail" Type="int" />
+          <Property Name="DateOfUpdate" Type="datetime" Nullable="false" />
+          <Property Name="CheckCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="IsNew" Type="int" Nullable="false" />
+          <Property Name="WebChatNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsAccountEmail" Type="int" Nullable="false" />
+          <Property Name="UnBindWxDate" Type="datetime" />
+          <Property Name="UnionId" Type="nvarchar" MaxLength="50" />
+          <Property Name="WxHeadImg" Type="nvarchar" MaxLength="200" />
+          <Property Name="Score" Type="int" />
+          <Property Name="IsCardMember" Type="int" />
+          <Property Name="ImportDate" Type="datetime" />
+          <Property Name="IsNewContact" Type="int" />
+          <Property Name="IsSalesOfNewCustomer" Type="int" />
+          <Property Name="CrmCompanyId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrmContactId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CrmAccountNum" Type="nvarchar" MaxLength="10" />
+          <Property Name="CrmAccountCreateDate" Type="datetime" />
+          <Property Name="CrmAccountCreateUser" Type="nvarchar" MaxLength="10" />
+          <Property Name="temp" Type="int" />
+          <Property Name="HashPwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsNewAccount" Type="int" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Language" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="tinyint" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="999" />
+        </EntityType>
+        <EntityType Name="App_UserLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TableId" Type="int" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="App_UserNotice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="NoticeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoticeContent" Type="nvarchar(max)" />
+          <Property Name="NoticeTime" Type="datetime" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="IsDelete" Type="int" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_UserRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Title" Type="varchar" MaxLength="100" />
+          <Property Name="Department" Type="varchar" MaxLength="100" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="200" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="TrainName" Type="varchar" MaxLength="100" />
+          <Property Name="TrainDay" Type="int" />
+          <Property Name="TrainNum" Type="int" />
+          <Property Name="CompanyAddress" Type="varchar" MaxLength="400" />
+          <Property Name="PostCode" Type="varchar" MaxLength="10" />
+          <Property Name="PublicName" Type="varchar" MaxLength="50" />
+          <Property Name="InHouseName" Type="varchar" MaxLength="50" />
+          <Property Name="InvalidRemark" Type="varchar" MaxLength="500" />
+          <Property Name="FromId" Type="int" />
+          <Property Name="TrainDate" Type="varchar" MaxLength="100" />
+          <Property Name="TrainDepart" Type="varchar" MaxLength="100" />
+          <Property Name="CrmOppId" Type="varchar" MaxLength="999" />
+          <Property Name="CrmOpportunityId" Type="varchar" MaxLength="100" />
+          <Property Name="OppName" Type="varchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CourseId" Type="int" />
+          <Property Name="ScheduleId" Type="int" />
+          <Property Name="EventId" Type="int" />
+          <Property Name="SourceId" Type="int" />
+          <Property Name="HandleUser" Type="varchar" MaxLength="100" />
+          <Property Name="HandleDate" Type="datetime" />
+          <Property Name="IsSendEMail" Type="int" />
+          <Property Name="SendEMailDate" Type="datetime" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="MediaSource" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MediaChildSource" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MediaRemark" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Clue" Type="int" />
+          <Property Name="OppStage" Type="varchar" MaxLength="100" />
+          <Property Name="OrderPrice" Type="float" />
+          <Property Name="OrderSearchDate" Type="datetime" />
+          <Property Name="IsHandel" Type="int" />
+          <Property Name="SalesRemark" Type="varchar" MaxLength="500" />
+          <Property Name="OrderPriceNoTax" Type="float" />
+          <Property Name="Ip" Type="varchar" MaxLength="100" />
+          <Property Name="Url" Type="varchar" MaxLength="999" />
+          <Property Name="ImportDate" Type="datetime" Nullable="false" />
+          <Property Name="IsConfirmEvent" Type="int" />
+          <Property Name="IsSynchMktMember" Type="int" />
+          <Property Name="SplitOrdType" Type="varchar" MaxLength="20" />
+          <Property Name="IsSplit" Type="int" />
+          <Property Name="IsSplitHandel" Type="int" />
+          <Property Name="SplitMonth" Type="varchar" MaxLength="200" />
+          <Property Name="CreateUser" Type="int" />
+          <Property Name="StuCrmOrderId" Type="varchar" MaxLength="18" />
+          <Property Name="IsLowIntention" Type="int" />
+          <Property Name="ImportUser" Type="varchar" MaxLength="100" />
+          <Property Name="ActiveMonth" Type="int" />
+          <Property Name="MediaNo" Type="varchar" MaxLength="100" />
+          <Property Name="MediaL1" Type="varchar" MaxLength="100" />
+          <Property Name="MediaL2" Type="varchar" MaxLength="100" />
+          <Property Name="MediaName" Type="varchar" MaxLength="100" />
+          <Property Name="PostName" Type="varchar" MaxLength="100" />
+          <Property Name="PostUnit" Type="varchar" MaxLength="100" />
+          <Property Name="AdContent" Type="varchar" MaxLength="100" />
+          <Property Name="AdPage" Type="varchar" MaxLength="100" />
+          <Property Name="AdPageType" Type="varchar" MaxLength="100" />
+          <Property Name="AdGroup" Type="varchar" MaxLength="100" />
+          <Property Name="ProductName" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="tinyint" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="999" />
+        </EntityType>
+        <EntityType Name="App_UserShare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShareTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShareUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShareType" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppID" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="AppName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VersionCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="100" />
+          <Property Name="PublishTime" Type="datetime" />
+          <Property Name="UpdateContent" Type="nvarchar(max)" />
+          <Property Name="IsDelete" Type="int" />
+          <Property Name="IsCurrent" Type="int" />
+          <Property Name="CreateTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="App_Video">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="MetaKeyWords" Type="nvarchar" MaxLength="100" />
+          <Property Name="MetaDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="Speaker" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" />
+          <Property Name="Img" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsReg" Type="int" />
+          <Property Name="BigImg" Type="nvarchar" MaxLength="200" />
+          <Property Name="CourseId" Type="int" />
+        </EntityType>
+        <EntityType Name="App_WechatPay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mch_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="device_info" Type="varchar" MaxLength="50" />
+          <Property Name="nonce_str" Type="varchar" MaxLength="50" />
+          <Property Name="sign" Type="varchar" MaxLength="50" />
+          <Property Name="sign_type" Type="varchar" MaxLength="50" />
+          <Property Name="result_code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="err_code" Type="varchar" MaxLength="50" />
+          <Property Name="err_code_des" Type="nvarchar" MaxLength="200" />
+          <Property Name="openid" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="is_subscribe" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="trade_type" Type="varchar" MaxLength="50" />
+          <Property Name="bank_type" Type="varchar" MaxLength="50" />
+          <Property Name="total_fee" Type="int" Nullable="false" />
+          <Property Name="settlement_total_fee" Type="int" />
+          <Property Name="fee_type" Type="varchar" MaxLength="50" />
+          <Property Name="cash_fee" Type="int" Nullable="false" />
+          <Property Name="cash_fee_type" Type="varchar" MaxLength="50" />
+          <Property Name="coupon_fee" Type="int" />
+          <Property Name="coupon_count" Type="int" />
+          <Property Name="coupon_type" Type="varchar" MaxLength="50" />
+          <Property Name="coupon_id" Type="varchar" MaxLength="50" />
+          <Property Name="coupon_feen" Type="int" />
+          <Property Name="transaction_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="out_trade_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="attach" Type="varchar" MaxLength="200" />
+          <Property Name="time_end" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pay_Time" Type="datetime" />
+          <Property Name="Create_Time" Type="datetime" />
+          <Property Name="Is_Synced" Type="bit" />
+          <Property Name="Sync_Time" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PubConfig">
+          <Key>
+            <PropertyRef Name="Config_Key" />
+          </Key>
+          <Property Name="Config_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Config_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Config_Key" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Config_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Config_Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Upper_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Show_Index" Type="int" />
+          <Property Name="Is_Protected" Type="bit" Nullable="false" />
+          <Property Name="Is_Enabled" Type="bit" Nullable="false" />
+          <Property Name="Create_Time" Type="datetime" />
+          <Property Name="Update_Time" Type="datetime" />
+          <Property Name="Operator" Type="nvarchar" MaxLength="50" />
+          <Property Name="Reserve1" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SAPIStoreContainer">
+          <EntitySet Name="App_Account" EntityType="Self.App_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Advert" EntityType="Self.App_Advert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_AliPay" EntityType="Self.App_AliPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_ApiAccount" EntityType="Self.App_ApiAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Consume" EntityType="Self.App_Consume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_LiveBook" EntityType="Self.App_LiveBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_LiveVideo" EntityType="Self.App_LiveVideo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Order" EntityType="Self.App_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_OrderAllot" EntityType="Self.App_OrderAllot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_OrderSS" EntityType="Self.App_OrderSS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_OrderStudent" EntityType="Self.App_OrderStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Register" EntityType="Self.App_Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Resource" EntityType="Self.App_Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Sales" EntityType="Self.App_Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_SalesAllot" EntityType="Self.App_SalesAllot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_SMS" EntityType="Self.App_SMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_StudyHistory" EntityType="Self.App_StudyHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserCalender" EntityType="Self.App_UserCalender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserInfo" EntityType="Self.App_UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserLog" EntityType="Self.App_UserLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserNotice" EntityType="Self.App_UserNotice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserRecord" EntityType="Self.App_UserRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_UserShare" EntityType="Self.App_UserShare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Version" EntityType="Self.App_Version" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_Video" EntityType="Self.App_Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="App_WechatPay" EntityType="Self.App_WechatPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PubConfig" EntityType="Self.PubConfig" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+        <!-- CSDL content -->
+        <edmx:ConceptualModels>
+            <Schema Namespace="SAPI" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+                <EntityContainer Name="ScheduleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="App_Account" EntityType="SAPI.App_Account" />
+          <EntitySet Name="App_Advert" EntityType="SAPI.App_Advert" />
+          <EntitySet Name="App_AliPay" EntityType="SAPI.App_AliPay" />
+          <EntitySet Name="App_ApiAccount" EntityType="SAPI.App_ApiAccount" />
+          <EntitySet Name="App_Consume" EntityType="SAPI.App_Consume" />
+          <EntitySet Name="App_Order" EntityType="SAPI.App_Order" />
+          <EntitySet Name="App_OrderAllot" EntityType="SAPI.App_OrderAllot" />
+          <EntitySet Name="App_OrderStudent" EntityType="SAPI.App_OrderStudent" />
+          <EntitySet Name="App_Register" EntityType="SAPI.App_Register" />
+          <EntitySet Name="App_Resource" EntityType="SAPI.App_Resource" />
+          <EntitySet Name="App_Sales" EntityType="SAPI.App_Sales" />
+          <EntitySet Name="App_SalesAllot" EntityType="SAPI.App_SalesAllot" />
+          <EntitySet Name="App_SMS" EntityType="SAPI.App_SMS" />
+          <EntitySet Name="App_StudyHistory" EntityType="SAPI.App_StudyHistory" />
+          <EntitySet Name="App_UserCalender" EntityType="SAPI.App_UserCalender" />
+          <EntitySet Name="App_UserInfo" EntityType="SAPI.App_UserInfo" />
+          <EntitySet Name="App_UserLog" EntityType="SAPI.App_UserLog" />
+          <EntitySet Name="App_UserNotice" EntityType="SAPI.App_UserNotice" />
+          <EntitySet Name="App_UserRecord" EntityType="SAPI.App_UserRecord" />
+          <EntitySet Name="App_UserShare" EntityType="SAPI.App_UserShare" />
+          <EntitySet Name="App_Version" EntityType="SAPI.App_Version" />
+          <EntitySet Name="App_Video" EntityType="SAPI.App_Video" />
+          <EntitySet Name="App_WechatPay" EntityType="SAPI.App_WechatPay" />
+          <EntitySet Name="PubConfigs" EntityType="SAPI.PubConfig" />
+          <EntitySet Name="App_OrderSS" EntityType="SAPI.App_OrderSS" />
+          <EntitySet Name="App_LiveBook" EntityType="SAPI.App_LiveBook" />
+          <EntitySet Name="App_LiveVideo" EntityType="SAPI.App_LiveVideo" />
+        </EntityContainer>
+        <EntityType Name="App_Account">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RecordType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerID" Type="Int32" Nullable="false" />
+          <Property Name="CRMAccountId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CardAmount" Type="Int32" />
+          <Property Name="RemainBalance" Type="Int32" />
+          <Property Name="AccountStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesCRMUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_Advert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_AliPay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="notify_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="notify_type" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="notify_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="app_id" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="charset" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="version" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="sign_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="trade_no" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="out_trade_no" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="out_biz_no" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="buyer_id" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="buyer_logon_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="seller_id" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="seller_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="trade_status" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="total_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="receipt_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="invoice_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="buyer_pay_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="point_amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="refund_fee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="subject" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="gmt_create" Type="DateTime" Precision="3" />
+          <Property Name="gmt_payment" Type="DateTime" Precision="3" />
+          <Property Name="gmt_refund" Type="DateTime" Precision="3" />
+          <Property Name="gmt_close" Type="DateTime" Precision="3" />
+          <Property Name="fund_bill_list" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="passback_params" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="voucher_detail_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Time" Type="DateTime" Precision="3" />
+          <Property Name="Is_Synced" Type="Boolean" />
+          <Property Name="Sync_Time" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_ApiAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LimitIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApiType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsActivity" Type="Boolean" Nullable="false" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="App_Consume">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="ResourceType" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaidAmount" Type="Int32" />
+          <Property Name="PayStatus" Type="Int32" />
+          <Property Name="PayWay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayTime" Type="DateTime" Precision="3" />
+          <Property Name="RefundTime" Type="DateTime" Precision="3" />
+          <Property Name="SettleTime" Type="DateTime" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="ClientType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Auditor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UnionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesId" Type="Int32" />
+          <Property Name="Introducer" Type="Int32" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="ResourceType" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="PayId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Auditor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve5" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="BuyerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerLogId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CashPay" Type="Int32" />
+          <Property Name="CardPay" Type="Int32" />
+          <Property Name="PaidAmount" Type="Int32" />
+          <Property Name="NoPaidAmount" Type="Int32" />
+          <Property Name="NoInvoiced" Type="Int32" />
+          <Property Name="InvoicedAmount" Type="Int32" />
+          <Property Name="ShowCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShowAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ShowTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="AuditStatus" Type="Int32" />
+          <Property Name="PayStatus" Type="Int32" />
+          <Property Name="PayWay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayTime" Type="DateTime" Precision="3" />
+          <Property Name="RefundTime" Type="DateTime" Precision="3" />
+          <Property Name="SettleTime" Type="DateTime" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="ClientType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="App_OrderAllot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="SalesId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UnionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerLogId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PayTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PaidAmount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="App_OrderStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BookerId" Type="Int32" Nullable="false" />
+          <Property Name="TraineeId" Type="Int32" Nullable="false" />
+          <Property Name="TraineeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraineeCRMCId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="StudyDate" Type="DateTime" Precision="3" />
+          <Property Name="StudyStatus" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="CheckInTime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_Register">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CRMCId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResourceType" Type="Int32" Nullable="false" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="ResourceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ItemCount" Type="Int32" />
+          <Property Name="PayStatue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayWay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_Resource">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResourceType" Type="Int32" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CImgUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SaleStatus" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="LinePrice" Type="Int32" Nullable="false" />
+          <Property Name="ViewCount" Type="Int32" />
+          <Property Name="TotalChapters" Type="Int32" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubSetCount" Type="Int32" />
+          <Property Name="AudioLength" Type="Int32" />
+          <Property Name="DetailDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContentUrl" Type="String" MaxLength="999" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_Sales">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalesType" Type="Int32" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PrivateCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QrCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_SalesAllot">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="SalesId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrivateCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="QrCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="SortId" Type="Int32" Nullable="false" />
+          <Property Name="ChangeCount" Type="Int32" Nullable="false" />
+          <Property Name="TermCount" Type="Int32" Nullable="false" />
+          <Property Name="PostCount" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="App_SMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SmsKey" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="SmsType" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="WorkDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ValCode" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsVerify" Type="Boolean" Nullable="false" />
+          <Property Name="IsSended" Type="Boolean" Nullable="false" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+          <Property Name="RetryTime" Type="Int32" Nullable="false" />
+          <Property Name="BackContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="App_StudyHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TraineeId" Type="Int32" Nullable="false" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="ScheduleId" Type="Int32" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudyWay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StudySeconds" Type="Int32" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="StudyTime" Type="DateTime" Precision="3" />
+          <Property Name="StudyStatus" Type="Int32" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_UserCalender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="OrderId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventType" Type="Int32" />
+          <Property Name="ResourceId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="StudyTime" Type="DateTime" Precision="3" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CheckStatus" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_UserInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="AllowLogin" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="DateOfLastLogin" Type="DateTime" Precision="3" />
+          <Property Name="LoginCount" Type="Int32" />
+          <Property Name="SourceId" Type="Int32" />
+          <Property Name="HandleUser" Type="Int32" />
+          <Property Name="HandleDate" Type="DateTime" Precision="3" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="IsSendEmail" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="SendEmailDate" Type="DateTime" Precision="3" />
+          <Property Name="HandleStatusId" Type="Int32" />
+          <Property Name="FromId" Type="Int32" />
+          <Property Name="IsActiveEmail" Type="Int32" />
+          <Property Name="DateOfUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CheckCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="IsNew" Type="Int32" Nullable="false" />
+          <Property Name="WebChatNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsAccountEmail" Type="Int32" Nullable="false" />
+          <Property Name="UnBindWxDate" Type="DateTime" Precision="3" />
+          <Property Name="UnionId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WxHeadImg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Int32" />
+          <Property Name="IsCardMember" Type="Int32" />
+          <Property Name="ImportDate" Type="DateTime" Precision="3" />
+          <Property Name="IsNewContact" Type="Int32" />
+          <Property Name="IsSalesOfNewCustomer" Type="Int32" />
+          <Property Name="CrmCompanyId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CrmContactId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CrmAccountNum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CrmAccountCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CrmAccountCreateUser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="temp" Type="Int32" />
+          <Property Name="HashPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsNewAccount" Type="Int32" />
+          <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Byte" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_UserLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TableId" Type="Int32" Nullable="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Operation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_UserNotice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="NoticeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoticeContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoticeTime" Type="DateTime" Precision="3" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="IsDelete" Type="Int32" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_UserRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TrainName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TrainDay" Type="Int32" />
+          <Property Name="TrainNum" Type="Int32" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PublicName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InHouseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvalidRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FromId" Type="Int32" />
+          <Property Name="TrainDate" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TrainDepart" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CrmOppId" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="CrmOpportunityId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OppName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CourseId" Type="Int32" />
+          <Property Name="ScheduleId" Type="Int32" />
+          <Property Name="EventId" Type="Int32" />
+          <Property Name="SourceId" Type="Int32" />
+          <Property Name="HandleUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HandleDate" Type="DateTime" Precision="3" />
+          <Property Name="IsSendEMail" Type="Int32" />
+          <Property Name="SendEMailDate" Type="DateTime" Precision="3" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="MediaSource" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MediaChildSource" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MediaRemark" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Clue" Type="Int32" />
+          <Property Name="OppStage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrderPrice" Type="Double" />
+          <Property Name="OrderSearchDate" Type="DateTime" Precision="3" />
+          <Property Name="IsHandel" Type="Int32" />
+          <Property Name="SalesRemark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OrderPriceNoTax" Type="Double" />
+          <Property Name="Ip" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="ImportDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsConfirmEvent" Type="Int32" />
+          <Property Name="IsSynchMktMember" Type="Int32" />
+          <Property Name="SplitOrdType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsSplit" Type="Int32" />
+          <Property Name="IsSplitHandel" Type="Int32" />
+          <Property Name="SplitMonth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreateUser" Type="Int32" />
+          <Property Name="StuCrmOrderId" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="IsLowIntention" Type="Int32" />
+          <Property Name="ImportUser" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActiveMonth" Type="Int32" />
+          <Property Name="MediaNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MediaL1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MediaL2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MediaName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdContent" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdPage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdPageType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdGroup" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Byte" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_UserShare">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShareTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShareUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShareType" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AppName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VersionCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VersionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Publisher" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PublishTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Int32" />
+          <Property Name="IsCurrent" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="App_Video">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MetaKeyWords" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MetaDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="Speaker" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsReg" Type="Int32" />
+          <Property Name="BigImg" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CourseId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="App_WechatPay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mch_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="device_info" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nonce_str" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sign_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="result_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="err_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="err_code_des" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="openid" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="is_subscribe" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="trade_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bank_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="total_fee" Type="Int32" Nullable="false" />
+          <Property Name="settlement_total_fee" Type="Int32" />
+          <Property Name="fee_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cash_fee" Type="Int32" Nullable="false" />
+          <Property Name="cash_fee_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="coupon_fee" Type="Int32" />
+          <Property Name="coupon_count" Type="Int32" />
+          <Property Name="coupon_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="coupon_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="coupon_feen" Type="Int32" />
+          <Property Name="transaction_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="out_trade_no" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="attach" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="time_end" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pay_Time" Type="DateTime" Precision="3" />
+          <Property Name="Create_Time" Type="DateTime" Precision="3" />
+          <Property Name="Is_Synced" Type="Boolean" />
+          <Property Name="Sync_Time" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PubConfig">
+          <Key>
+            <PropertyRef Name="Config_Key" />
+          </Key>
+          <Property Name="Config_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Config_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Config_Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Config_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Config_Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Upper_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Show_Index" Type="Int32" />
+          <Property Name="Is_Protected" Type="Boolean" Nullable="false" />
+          <Property Name="Is_Enabled" Type="Boolean" Nullable="false" />
+          <Property Name="Create_Time" Type="DateTime" Precision="3" />
+          <Property Name="Update_Time" Type="DateTime" Precision="3" />
+          <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Reserve1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="App_OrderSS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="UnionId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerLogId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SalesId" Type="Int32" />
+          <Property Name="Introducer" Type="Int32" />
+          <Property Name="ResourceId" Type="Int32" Nullable="false" />
+          <Property Name="ResourceType" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="CashPay" Type="Int32" />
+          <Property Name="CardPay" Type="Int32" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="PaidAmount" Type="Int32" />
+          <Property Name="NoPaidAmount" Type="Int32" />
+          <Property Name="NoInvoiced" Type="Int32" />
+          <Property Name="InvoicedAmount" Type="Int32" />
+          <Property Name="ShowCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShowAddress" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ShowTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="AuditStatus" Type="Int32" />
+          <Property Name="PayStatus" Type="Int32" />
+          <Property Name="PayId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayWay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayTime" Type="DateTime" Precision="3" />
+          <Property Name="RefundTime" Type="DateTime" Precision="3" />
+          <Property Name="SettleTime" Type="DateTime" Precision="3" />
+          <Property Name="ExpireTime" Type="DateTime" Precision="3" />
+          <Property Name="ClientType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Auditor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="Reserve1" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="Reserve2" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="Reserve3" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="Reserve4" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="Reserve5" Type="Int32" />
+          <Property Name="PayChannel" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="App_LiveBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LiveId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BookTime" Type="DateTime" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="LiveUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RePlayUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HasRePlay" Type="Boolean" Nullable="false" />
+          <Property Name="HasLive" Type="Boolean" Nullable="false" />
+          <Property Name="HasWPush" Type="Boolean" Nullable="false" />
+          <Property Name="HasSms" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Updator" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Reserve1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="App_LiveVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Summary" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="FrontPage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CourseDetail" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="SaleTime" Type="DateTime" Precision="3" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="LiveUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RePlayUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsTop" Type="Boolean" Nullable="false" />
+          <Property Name="IsEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="Booked" Type="Int32" />
+          <Property Name="Watched" Type="Int32" />
+          <Property Name="LiveStatus" Type="Int32" />
+          <Property Name="Creator" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Precision="3" />
+          <Property Name="Updator" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Reserve1" Type="String" MaxLength="99" FixedLength="false" Unicode="false" />
+        </EntityType>
+                </Schema>
+        </edmx:ConceptualModels>
+        <!-- C-S mapping content -->
+        <edmx:Mappings>
+            <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+                <EntityContainerMapping StorageEntityContainer="SAPIStoreContainer" CdmEntityContainer="ScheduleEntities">
+          <EntitySetMapping Name="App_Account">
+            <EntityTypeMapping TypeName="SAPI.App_Account">
+              <MappingFragment StoreEntitySet="App_Account">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="SalesMail" ColumnName="SalesMail" />
+                <ScalarProperty Name="SalesCRMUserId" ColumnName="SalesCRMUserId" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="SalesName" ColumnName="SalesName" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+                <ScalarProperty Name="RemainBalance" ColumnName="RemainBalance" />
+                <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+                <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+                <ScalarProperty Name="CRMAccountId" ColumnName="CRMAccountId" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Advert">
+            <EntityTypeMapping TypeName="SAPI.App_Advert">
+              <MappingFragment StoreEntitySet="App_Advert">
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="AdUrl" ColumnName="AdUrl" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_AliPay">
+            <EntityTypeMapping TypeName="SAPI.App_AliPay">
+              <MappingFragment StoreEntitySet="App_AliPay">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sync_Time" ColumnName="Sync_Time" />
+                <ScalarProperty Name="Is_Synced" ColumnName="Is_Synced" />
+                <ScalarProperty Name="Create_Time" ColumnName="Create_Time" />
+                <ScalarProperty Name="voucher_detail_list" ColumnName="voucher_detail_list" />
+                <ScalarProperty Name="passback_params" ColumnName="passback_params" />
+                <ScalarProperty Name="fund_bill_list" ColumnName="fund_bill_list" />
+                <ScalarProperty Name="gmt_close" ColumnName="gmt_close" />
+                <ScalarProperty Name="gmt_refund" ColumnName="gmt_refund" />
+                <ScalarProperty Name="gmt_payment" ColumnName="gmt_payment" />
+                <ScalarProperty Name="gmt_create" ColumnName="gmt_create" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="refund_fee" ColumnName="refund_fee" />
+                <ScalarProperty Name="point_amount" ColumnName="point_amount" />
+                <ScalarProperty Name="buyer_pay_amount" ColumnName="buyer_pay_amount" />
+                <ScalarProperty Name="invoice_amount" ColumnName="invoice_amount" />
+                <ScalarProperty Name="receipt_amount" ColumnName="receipt_amount" />
+                <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+                <ScalarProperty Name="trade_status" ColumnName="trade_status" />
+                <ScalarProperty Name="seller_email" ColumnName="seller_email" />
+                <ScalarProperty Name="seller_id" ColumnName="seller_id" />
+                <ScalarProperty Name="buyer_logon_id" ColumnName="buyer_logon_id" />
+                <ScalarProperty Name="buyer_id" ColumnName="buyer_id" />
+                <ScalarProperty Name="out_biz_no" ColumnName="out_biz_no" />
+                <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+                <ScalarProperty Name="trade_no" ColumnName="trade_no" />
+                <ScalarProperty Name="sign" ColumnName="sign" />
+                <ScalarProperty Name="sign_type" ColumnName="sign_type" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="charset" ColumnName="charset" />
+                <ScalarProperty Name="app_id" ColumnName="app_id" />
+                <ScalarProperty Name="notify_id" ColumnName="notify_id" />
+                <ScalarProperty Name="notify_type" ColumnName="notify_type" />
+                <ScalarProperty Name="notify_time" ColumnName="notify_time" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_ApiAccount">
+            <EntityTypeMapping TypeName="SAPI.App_ApiAccount">
+              <MappingFragment StoreEntitySet="App_ApiAccount">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="IsActivity" ColumnName="IsActivity" />
+                <ScalarProperty Name="ApiType" ColumnName="ApiType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LimitIP" ColumnName="LimitIP" />
+                <ScalarProperty Name="AccountKey" ColumnName="AccountKey" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Consume">
+            <EntityTypeMapping TypeName="SAPI.App_Consume">
+              <MappingFragment StoreEntitySet="App_Consume">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="SettleTime" ColumnName="SettleTime" />
+                <ScalarProperty Name="RefundTime" ColumnName="RefundTime" />
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="PayWay" ColumnName="PayWay" />
+                <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="PurchaseName" ColumnName="PurchaseName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Order">
+            <EntityTypeMapping TypeName="SAPI.App_Order">
+              <MappingFragment StoreEntitySet="App_Order">
+                <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="SettleTime" ColumnName="SettleTime" />
+                <ScalarProperty Name="RefundTime" ColumnName="RefundTime" />
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="PayWay" ColumnName="PayWay" />
+                <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+                <ScalarProperty Name="AuditStatus" ColumnName="AuditStatus" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+                <ScalarProperty Name="ShowAddress" ColumnName="ShowAddress" />
+                <ScalarProperty Name="ShowCity" ColumnName="ShowCity" />
+                <ScalarProperty Name="InvoicedAmount" ColumnName="InvoicedAmount" />
+                <ScalarProperty Name="NoInvoiced" ColumnName="NoInvoiced" />
+                <ScalarProperty Name="NoPaidAmount" ColumnName="NoPaidAmount" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="CardPay" ColumnName="CardPay" />
+                <ScalarProperty Name="CashPay" ColumnName="CashPay" />
+                <ScalarProperty Name="PurchaseName" ColumnName="PurchaseName" />
+                <ScalarProperty Name="BuyerLogId" ColumnName="BuyerLogId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Reserve5" ColumnName="Reserve5" />
+                <ScalarProperty Name="Reserve4" ColumnName="Reserve4" />
+                <ScalarProperty Name="Reserve3" ColumnName="Reserve3" />
+                <ScalarProperty Name="Reserve2" ColumnName="Reserve2" />
+                <ScalarProperty Name="Reserve1" ColumnName="Reserve1" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="Introducer" ColumnName="Introducer" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+                <ScalarProperty Name="UnionId" ColumnName="UnionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_OrderAllot">
+            <EntityTypeMapping TypeName="SAPI.App_OrderAllot">
+              <MappingFragment StoreEntitySet="App_OrderAllot">
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="BuyerLogId" ColumnName="BuyerLogId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+                <ScalarProperty Name="UnionId" ColumnName="UnionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_OrderStudent">
+            <EntityTypeMapping TypeName="SAPI.App_OrderStudent">
+              <MappingFragment StoreEntitySet="App_OrderStudent">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CheckInTime" ColumnName="CheckInTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="StudyStatus" ColumnName="StudyStatus" />
+                <ScalarProperty Name="StudyDate" ColumnName="StudyDate" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="TraineeCRMCId" ColumnName="TraineeCRMCId" />
+                <ScalarProperty Name="TraineeName" ColumnName="TraineeName" />
+                <ScalarProperty Name="TraineeId" ColumnName="TraineeId" />
+                <ScalarProperty Name="BookerId" ColumnName="BookerId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Register">
+            <EntityTypeMapping TypeName="SAPI.App_Register">
+              <MappingFragment StoreEntitySet="App_Register">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="PayWay" ColumnName="PayWay" />
+                <ScalarProperty Name="PayStatue" ColumnName="PayStatue" />
+                <ScalarProperty Name="ItemCount" ColumnName="ItemCount" />
+                <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CRMCId" ColumnName="CRMCId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Resource">
+            <EntityTypeMapping TypeName="SAPI.App_Resource">
+              <MappingFragment StoreEntitySet="App_Resource">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="ContentUrl" ColumnName="ContentUrl" />
+                <ScalarProperty Name="DetailDesc" ColumnName="DetailDesc" />
+                <ScalarProperty Name="AudioLength" ColumnName="AudioLength" />
+                <ScalarProperty Name="SubSetCount" ColumnName="SubSetCount" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="TotalChapters" ColumnName="TotalChapters" />
+                <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+                <ScalarProperty Name="LinePrice" ColumnName="LinePrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SaleStatus" ColumnName="SaleStatus" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CImgUrl" ColumnName="CImgUrl" />
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Sales">
+            <EntityTypeMapping TypeName="SAPI.App_Sales">
+              <MappingFragment StoreEntitySet="App_Sales">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="QrCode" ColumnName="QrCode" />
+                <ScalarProperty Name="PrivateCode" ColumnName="PrivateCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_SalesAllot">
+            <EntityTypeMapping TypeName="SAPI.App_SalesAllot">
+              <MappingFragment StoreEntitySet="App_SalesAllot">
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="PostCount" ColumnName="PostCount" />
+                <ScalarProperty Name="TermCount" ColumnName="TermCount" />
+                <ScalarProperty Name="ChangeCount" ColumnName="ChangeCount" />
+                <ScalarProperty Name="SortId" ColumnName="SortId" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="QrCode" ColumnName="QrCode" />
+                <ScalarProperty Name="PrivateCode" ColumnName="PrivateCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_SMS">
+            <EntityTypeMapping TypeName="SAPI.App_SMS">
+              <MappingFragment StoreEntitySet="App_SMS">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="BackContent" ColumnName="BackContent" />
+                <ScalarProperty Name="RetryTime" ColumnName="RetryTime" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="IsSended" ColumnName="IsSended" />
+                <ScalarProperty Name="IsVerify" ColumnName="IsVerify" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ValCode" ColumnName="ValCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+                <ScalarProperty Name="SmsType" ColumnName="SmsType" />
+                <ScalarProperty Name="SmsKey" ColumnName="SmsKey" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_StudyHistory">
+            <EntityTypeMapping TypeName="SAPI.App_StudyHistory">
+              <MappingFragment StoreEntitySet="App_StudyHistory">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="StudyStatus" ColumnName="StudyStatus" />
+                <ScalarProperty Name="StudyTime" ColumnName="StudyTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StudySeconds" ColumnName="StudySeconds" />
+                <ScalarProperty Name="StudyWay" ColumnName="StudyWay" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="TraineeId" ColumnName="TraineeId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserCalender">
+            <EntityTypeMapping TypeName="SAPI.App_UserCalender">
+              <MappingFragment StoreEntitySet="App_UserCalender">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CheckStatus" ColumnName="CheckStatus" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StudyTime" ColumnName="StudyTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserInfo">
+            <EntityTypeMapping TypeName="SAPI.App_UserInfo">
+              <MappingFragment StoreEntitySet="App_UserInfo">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="IsNewAccount" ColumnName="IsNewAccount" />
+                <ScalarProperty Name="HashPwd" ColumnName="HashPwd" />
+                <ScalarProperty Name="temp" ColumnName="temp" />
+                <ScalarProperty Name="CrmAccountCreateUser" ColumnName="CrmAccountCreateUser" />
+                <ScalarProperty Name="CrmAccountCreateDate" ColumnName="CrmAccountCreateDate" />
+                <ScalarProperty Name="CrmAccountNum" ColumnName="CrmAccountNum" />
+                <ScalarProperty Name="CrmContactId" ColumnName="CrmContactId" />
+                <ScalarProperty Name="CrmCompanyId" ColumnName="CrmCompanyId" />
+                <ScalarProperty Name="IsSalesOfNewCustomer" ColumnName="IsSalesOfNewCustomer" />
+                <ScalarProperty Name="IsNewContact" ColumnName="IsNewContact" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="IsCardMember" ColumnName="IsCardMember" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WxHeadImg" ColumnName="WxHeadImg" />
+                <ScalarProperty Name="UnionId" ColumnName="UnionId" />
+                <ScalarProperty Name="UnBindWxDate" ColumnName="UnBindWxDate" />
+                <ScalarProperty Name="IsAccountEmail" ColumnName="IsAccountEmail" />
+                <ScalarProperty Name="WebChatNo" ColumnName="WebChatNo" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="CheckCode" ColumnName="CheckCode" />
+                <ScalarProperty Name="DateOfUpdate" ColumnName="DateOfUpdate" />
+                <ScalarProperty Name="IsActiveEmail" ColumnName="IsActiveEmail" />
+                <ScalarProperty Name="FromId" ColumnName="FromId" />
+                <ScalarProperty Name="HandleStatusId" ColumnName="HandleStatusId" />
+                <ScalarProperty Name="SendEmailDate" ColumnName="SendEmailDate" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="IsSendEmail" ColumnName="IsSendEmail" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+                <ScalarProperty Name="HandleUser" ColumnName="HandleUser" />
+                <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+                <ScalarProperty Name="LoginCount" ColumnName="LoginCount" />
+                <ScalarProperty Name="DateOfLastLogin" ColumnName="DateOfLastLogin" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="AllowLogin" ColumnName="AllowLogin" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserPwd" ColumnName="UserPwd" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserLog">
+            <EntityTypeMapping TypeName="SAPI.App_UserLog">
+              <MappingFragment StoreEntitySet="App_UserLog">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserNotice">
+            <EntityTypeMapping TypeName="SAPI.App_UserNotice">
+              <MappingFragment StoreEntitySet="App_UserNotice">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="NoticeTime" ColumnName="NoticeTime" />
+                <ScalarProperty Name="NoticeContent" ColumnName="NoticeContent" />
+                <ScalarProperty Name="NoticeType" ColumnName="NoticeType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserRecord">
+            <EntityTypeMapping TypeName="SAPI.App_UserRecord">
+              <MappingFragment StoreEntitySet="App_UserRecord">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="AdGroup" ColumnName="AdGroup" />
+                <ScalarProperty Name="AdPageType" ColumnName="AdPageType" />
+                <ScalarProperty Name="AdPage" ColumnName="AdPage" />
+                <ScalarProperty Name="AdContent" ColumnName="AdContent" />
+                <ScalarProperty Name="PostUnit" ColumnName="PostUnit" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+                <ScalarProperty Name="MediaName" ColumnName="MediaName" />
+                <ScalarProperty Name="MediaL2" ColumnName="MediaL2" />
+                <ScalarProperty Name="MediaL1" ColumnName="MediaL1" />
+                <ScalarProperty Name="MediaNo" ColumnName="MediaNo" />
+                <ScalarProperty Name="ActiveMonth" ColumnName="ActiveMonth" />
+                <ScalarProperty Name="ImportUser" ColumnName="ImportUser" />
+                <ScalarProperty Name="IsLowIntention" ColumnName="IsLowIntention" />
+                <ScalarProperty Name="StuCrmOrderId" ColumnName="StuCrmOrderId" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="SplitMonth" ColumnName="SplitMonth" />
+                <ScalarProperty Name="IsSplitHandel" ColumnName="IsSplitHandel" />
+                <ScalarProperty Name="IsSplit" ColumnName="IsSplit" />
+                <ScalarProperty Name="SplitOrdType" ColumnName="SplitOrdType" />
+                <ScalarProperty Name="IsSynchMktMember" ColumnName="IsSynchMktMember" />
+                <ScalarProperty Name="IsConfirmEvent" ColumnName="IsConfirmEvent" />
+                <ScalarProperty Name="ImportDate" ColumnName="ImportDate" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="OrderPriceNoTax" ColumnName="OrderPriceNoTax" />
+                <ScalarProperty Name="SalesRemark" ColumnName="SalesRemark" />
+                <ScalarProperty Name="IsHandel" ColumnName="IsHandel" />
+                <ScalarProperty Name="OrderSearchDate" ColumnName="OrderSearchDate" />
+                <ScalarProperty Name="OrderPrice" ColumnName="OrderPrice" />
+                <ScalarProperty Name="OppStage" ColumnName="OppStage" />
+                <ScalarProperty Name="Clue" ColumnName="Clue" />
+                <ScalarProperty Name="MediaRemark" ColumnName="MediaRemark" />
+                <ScalarProperty Name="MediaChildSource" ColumnName="MediaChildSource" />
+                <ScalarProperty Name="MediaSource" ColumnName="MediaSource" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SendEMailDate" ColumnName="SendEMailDate" />
+                <ScalarProperty Name="IsSendEMail" ColumnName="IsSendEMail" />
+                <ScalarProperty Name="HandleDate" ColumnName="HandleDate" />
+                <ScalarProperty Name="HandleUser" ColumnName="HandleUser" />
+                <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="OppName" ColumnName="OppName" />
+                <ScalarProperty Name="CrmOpportunityId" ColumnName="CrmOpportunityId" />
+                <ScalarProperty Name="CrmOppId" ColumnName="CrmOppId" />
+                <ScalarProperty Name="TrainDepart" ColumnName="TrainDepart" />
+                <ScalarProperty Name="TrainDate" ColumnName="TrainDate" />
+                <ScalarProperty Name="FromId" ColumnName="FromId" />
+                <ScalarProperty Name="InvalidRemark" ColumnName="InvalidRemark" />
+                <ScalarProperty Name="InHouseName" ColumnName="InHouseName" />
+                <ScalarProperty Name="PublicName" ColumnName="PublicName" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="TrainNum" ColumnName="TrainNum" />
+                <ScalarProperty Name="TrainDay" ColumnName="TrainDay" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_UserShare">
+            <EntityTypeMapping TypeName="SAPI.App_UserShare">
+              <MappingFragment StoreEntitySet="App_UserShare">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ShareType" ColumnName="ShareType" />
+                <ScalarProperty Name="ShareUrl" ColumnName="ShareUrl" />
+                <ScalarProperty Name="ShareTitle" ColumnName="ShareTitle" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Version">
+            <EntityTypeMapping TypeName="SAPI.App_Version">
+              <MappingFragment StoreEntitySet="App_Version">
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UpdateContent" ColumnName="UpdateContent" />
+                <ScalarProperty Name="PublishTime" ColumnName="PublishTime" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+                <ScalarProperty Name="VersionCode" ColumnName="VersionCode" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_Video">
+            <EntityTypeMapping TypeName="SAPI.App_Video">
+              <MappingFragment StoreEntitySet="App_Video">
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="BigImg" ColumnName="BigImg" />
+                <ScalarProperty Name="IsReg" ColumnName="IsReg" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Speaker" ColumnName="Speaker" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="MetaDesc" ColumnName="MetaDesc" />
+                <ScalarProperty Name="MetaKeyWords" ColumnName="MetaKeyWords" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_WechatPay">
+            <EntityTypeMapping TypeName="SAPI.App_WechatPay">
+              <MappingFragment StoreEntitySet="App_WechatPay">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sync_Time" ColumnName="Sync_Time" />
+                <ScalarProperty Name="Is_Synced" ColumnName="Is_Synced" />
+                <ScalarProperty Name="Create_Time" ColumnName="Create_Time" />
+                <ScalarProperty Name="Pay_Time" ColumnName="Pay_Time" />
+                <ScalarProperty Name="time_end" ColumnName="time_end" />
+                <ScalarProperty Name="attach" ColumnName="attach" />
+                <ScalarProperty Name="out_trade_no" ColumnName="out_trade_no" />
+                <ScalarProperty Name="transaction_id" ColumnName="transaction_id" />
+                <ScalarProperty Name="coupon_feen" ColumnName="coupon_feen" />
+                <ScalarProperty Name="coupon_id" ColumnName="coupon_id" />
+                <ScalarProperty Name="coupon_type" ColumnName="coupon_type" />
+                <ScalarProperty Name="coupon_count" ColumnName="coupon_count" />
+                <ScalarProperty Name="coupon_fee" ColumnName="coupon_fee" />
+                <ScalarProperty Name="cash_fee_type" ColumnName="cash_fee_type" />
+                <ScalarProperty Name="cash_fee" ColumnName="cash_fee" />
+                <ScalarProperty Name="fee_type" ColumnName="fee_type" />
+                <ScalarProperty Name="settlement_total_fee" ColumnName="settlement_total_fee" />
+                <ScalarProperty Name="total_fee" ColumnName="total_fee" />
+                <ScalarProperty Name="bank_type" ColumnName="bank_type" />
+                <ScalarProperty Name="trade_type" ColumnName="trade_type" />
+                <ScalarProperty Name="is_subscribe" ColumnName="is_subscribe" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="err_code_des" ColumnName="err_code_des" />
+                <ScalarProperty Name="err_code" ColumnName="err_code" />
+                <ScalarProperty Name="result_code" ColumnName="result_code" />
+                <ScalarProperty Name="sign_type" ColumnName="sign_type" />
+                <ScalarProperty Name="sign" ColumnName="sign" />
+                <ScalarProperty Name="nonce_str" ColumnName="nonce_str" />
+                <ScalarProperty Name="device_info" ColumnName="device_info" />
+                <ScalarProperty Name="mch_id" ColumnName="mch_id" />
+                <ScalarProperty Name="appid" ColumnName="appid" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PubConfigs">
+            <EntityTypeMapping TypeName="SAPI.PubConfig">
+              <MappingFragment StoreEntitySet="PubConfig">
+                <ScalarProperty Name="Reserve1" ColumnName="Reserve1" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="Update_Time" ColumnName="Update_Time" />
+                <ScalarProperty Name="Create_Time" ColumnName="Create_Time" />
+                <ScalarProperty Name="Is_Enabled" ColumnName="Is_Enabled" />
+                <ScalarProperty Name="Is_Protected" ColumnName="Is_Protected" />
+                <ScalarProperty Name="Show_Index" ColumnName="Show_Index" />
+                <ScalarProperty Name="Upper_Type" ColumnName="Upper_Type" />
+                <ScalarProperty Name="Config_Value" ColumnName="Config_Value" />
+                <ScalarProperty Name="Config_Name" ColumnName="Config_Name" />
+                <ScalarProperty Name="Config_Key" ColumnName="Config_Key" />
+                <ScalarProperty Name="Config_Type" ColumnName="Config_Type" />
+                <ScalarProperty Name="Config_ID" ColumnName="Config_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_OrderSS">
+            <EntityTypeMapping TypeName="SAPI.App_OrderSS">
+              <MappingFragment StoreEntitySet="App_OrderSS">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PayChannel" ColumnName="PayChannel" />
+                <ScalarProperty Name="Reserve5" ColumnName="Reserve5" />
+                <ScalarProperty Name="Reserve4" ColumnName="Reserve4" />
+                <ScalarProperty Name="Reserve3" ColumnName="Reserve3" />
+                <ScalarProperty Name="Reserve2" ColumnName="Reserve2" />
+                <ScalarProperty Name="Reserve1" ColumnName="Reserve1" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Auditor" ColumnName="Auditor" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="UserMail" ColumnName="UserMail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="ClientType" ColumnName="ClientType" />
+                <ScalarProperty Name="ExpireTime" ColumnName="ExpireTime" />
+                <ScalarProperty Name="SettleTime" ColumnName="SettleTime" />
+                <ScalarProperty Name="RefundTime" ColumnName="RefundTime" />
+                <ScalarProperty Name="PayTime" ColumnName="PayTime" />
+                <ScalarProperty Name="PayWay" ColumnName="PayWay" />
+                <ScalarProperty Name="PayId" ColumnName="PayId" />
+                <ScalarProperty Name="PayStatus" ColumnName="PayStatus" />
+                <ScalarProperty Name="AuditStatus" ColumnName="AuditStatus" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+                <ScalarProperty Name="ShowAddress" ColumnName="ShowAddress" />
+                <ScalarProperty Name="ShowCity" ColumnName="ShowCity" />
+                <ScalarProperty Name="InvoicedAmount" ColumnName="InvoicedAmount" />
+                <ScalarProperty Name="NoInvoiced" ColumnName="NoInvoiced" />
+                <ScalarProperty Name="NoPaidAmount" ColumnName="NoPaidAmount" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CardPay" ColumnName="CardPay" />
+                <ScalarProperty Name="CashPay" ColumnName="CashPay" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PurchaseName" ColumnName="PurchaseName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+                <ScalarProperty Name="Introducer" ColumnName="Introducer" />
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="BuyerLogId" ColumnName="BuyerLogId" />
+                <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+                <ScalarProperty Name="UnionId" ColumnName="UnionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_LiveBook">
+            <EntityTypeMapping TypeName="SAPI.App_LiveBook">
+              <MappingFragment StoreEntitySet="App_LiveBook">
+                <ScalarProperty Name="Reserve1" ColumnName="Reserve1" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Updator" ColumnName="Updator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="HasSms" ColumnName="HasSms" />
+                <ScalarProperty Name="HasWPush" ColumnName="HasWPush" />
+                <ScalarProperty Name="HasLive" ColumnName="HasLive" />
+                <ScalarProperty Name="HasRePlay" ColumnName="HasRePlay" />
+                <ScalarProperty Name="RePlayUrl" ColumnName="RePlayUrl" />
+                <ScalarProperty Name="LiveUrl" ColumnName="LiveUrl" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="BookTime" ColumnName="BookTime" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LiveId" ColumnName="LiveId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="App_LiveVideo">
+            <EntityTypeMapping TypeName="SAPI.App_LiveVideo">
+              <MappingFragment StoreEntitySet="App_LiveVideo">
+                <ScalarProperty Name="Reserve1" ColumnName="Reserve1" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="Updator" ColumnName="Updator" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="LiveStatus" ColumnName="LiveStatus" />
+                <ScalarProperty Name="Watched" ColumnName="Watched" />
+                <ScalarProperty Name="Booked" ColumnName="Booked" />
+                <ScalarProperty Name="IsEnabled" ColumnName="IsEnabled" />
+                <ScalarProperty Name="IsTop" ColumnName="IsTop" />
+                <ScalarProperty Name="RePlayUrl" ColumnName="RePlayUrl" />
+                <ScalarProperty Name="LiveUrl" ColumnName="LiveUrl" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="SaleTime" ColumnName="SaleTime" />
+                <ScalarProperty Name="CourseDetail" ColumnName="CourseDetail" />
+                <ScalarProperty Name="FrontPage" ColumnName="FrontPage" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+            </Mapping>
+        </edmx:Mappings>
+    </edmx:Runtime>
+    <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+    <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+        <Connection>
+            <DesignerInfoPropertySet>
+                <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+            </DesignerInfoPropertySet>
+        </Connection>
+        <Options>
+            <DesignerInfoPropertySet>
+                <DesignerProperty Name="ValidateOnBuild" Value="true" />
+                <DesignerProperty Name="EnablePluralization" Value="true" />
+                <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+                <DesignerProperty Name="UseLegacyProvider" Value="false" />
+                <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+            </DesignerInfoPropertySet>
+        </Options>
+        <!-- Diagram content (shape and connector positions) -->
+        <Diagrams></Diagrams>
+    </Designer>
+</edmx:Edmx>

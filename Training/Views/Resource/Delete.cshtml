@@ -1,0 +1,198 @@
+﻿@model SAPI.Models.App_Resource
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>App_Resource</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Summary)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Summary)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Img_Url)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Img_Url)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CImg_Url)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CImg_Url)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sale_Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sale_Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Line_Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Line_Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.View_Count)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.View_Count)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Total_Chapters)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Total_Chapters)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SubSet_Count)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SubSet_Count)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Audio_Length)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Audio_Length)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Describe)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Describe)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Resource_Type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Resource_Type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Content_Url)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Content_Url)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Creator)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Creator)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Create_Time)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Create_Time)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Update_Time)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Update_Time)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Remark)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Remark)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

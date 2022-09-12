@@ -1,0 +1,125 @@
+﻿@model SAPI.Models.OrderList
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>订单查询</title>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h2>订单查询</h2> 
+    @using (Html.BeginForm("Index", "Order", FormMethod.Post, new { id = "formlist" }))
+    {
+        <p>
+            <div style="display:inline-block">
+                @Html.DropDownListFor(x => x.ResourceId, Model.ResourceList, "活动列表", new { id = "dlstATypes" })
+            </div>
+            <div style="display:inline-block">
+                <input type="text" value="@Model.Mobile" id="Mobile" name="Mobile" maxlength="50" placeholder="手机号" />
+                &nbsp;&nbsp;订单日期&nbsp;:
+                <input value="@Model.StartDate" id="StartDate" name="StartDate" type="date" required="required" />-
+                <input value="@Model.EndDate" id="EndDate" name="EndDate" type="date" required="required" />
+            </div>
+            <div class="btnquerybg">
+                <input type="submit" id="btnQuery" value="搜索" class="btnquery" />
+            </div>
+        </p>
+        <table>
+            <tr>
+                <th>
+                    行号
+                </th>
+                <th style="width:150px;">
+                    订单号
+                </th>
+                <th style="width:150px;">
+                    OpenId
+                </th>
+                <th style="width:80px;">
+                    昵称
+                </th>
+                <th>
+                    资源编号
+                </th>
+                <th>
+                    资源名称
+                </th>
+                <th>
+                    价格(分)
+                </th>
+                <th style="width:150px;">
+                   支付流水号
+                </th>
+                <th>
+                    支付时间
+                </th>
+                <th>
+                    手机号
+                </th>
+                <th>
+                    订单创建时间
+                </th>
+                <th>
+                    销售ID
+                </th>
+                <th>操作</th>
+            </tr>
+            @foreach (var item in Model.AllList)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowId)
+            </td>
+            <td style="width: 150px; word-break: break-all;">
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td style="width: 150px; word-break: break-all;">
+                @Html.DisplayFor(modelItem => item.OpenId)
+            </td>
+            <td style="width: 80px; word-break: break-all;">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+            <td style="width: 150px; word-break: break-all;">
+                @Html.DisplayFor(modelItem => item.PayId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pay_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Create_Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesId)
+            </td>
+            <td>
+                @Html.ActionLink("详情", "Details", new { id = item.OrderId })
+            </td>
+        </tr>
+            }
+
+        </table>
+
+        <!--data list pager start-->
+        @*<div class="dataListEdit">
+                <div class="page">
+                    @Html.Raw(Html.AdminPager(Model.PageModel))
+                </div>
+            </div>*@
+        <!--data list pager end-->
+    }
+</body>
+</html>

@@ -1,0 +1,139 @@
+﻿@model SAPI.Models.App_Sales
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新增销售</title>
+    <script type="text/javascript">
+        ///上传图片
+        function uploadQR()
+        {
+            var formData = new FormData();
+            formData.append("fileData", $("#fileData")[0].files[0]);
+            $.ajax({
+                url: '/Sales/UpLoadFile',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(res)
+                {
+                    var back = JSON.parse(res);
+                    console.log(back.code);
+                    console.log(back.msg);
+                    console.log(back.data);
+                    console.log(back.url);
+                    if (back.code == "0")
+                    {
+                        $("#imgQr").show();
+                        $("#imgQr").prop("src", back.url);
+                        $("#QrCode").prop("value", back.data);
+                    }
+                    alert(back.msg);
+                    $("#fileData").prop("value", "");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div style="height:50px;">&nbsp;</div>
+    <h3>新增销售</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    姓名*&nbsp;:&nbsp;
+                </div>
+                <div class="col-md-10">
+                    <input value="@Model.Name" id="Name" name="Name" type="text" required="required" style="width:150px" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.English_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.English_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    销售类型*&nbsp;:&nbsp;
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sales_Type, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(model => model.Sales_Type, "社群:1;电销:2;网销:3;", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Private_Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Private_Code, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-2" style="width:195px;">
+                    二维码*&nbsp;:&nbsp;
+                </div>
+                <div class="col-md-10" style="display: inline-block; width: 300px;">
+                    <input value="@Model.QrCode" id="QrCode" name="QrCode" type="text" required="required" style="width:280px" />
+                    <input type="file" id="fileData" name="fileData" style=" width: 280px;" />
+                    <div class="btnnewbg">
+                        <input type="button" onclick="uploadQR()" value="上传" class="btnnew" />
+                    </div> 图片格式支持:png,jpg
+                </div>
+                <div style="float:left;vertical-align:top;margin-left:20px;"><img id="imgQr" width="100" height="100" hidden="hidden" /></div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    启用状态*&nbsp;:&nbsp;
+                </div>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Is_Enable)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="display:inline-block;height:30px;">
+                    <div class="btnnewbg">
+                        <input type="submit" value="提交" class="btnnew" />
+                    </div>
+                    @Html.ActionLink("返回", "Index")
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
