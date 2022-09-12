@@ -1,0 +1,25 @@
+打开CMD命令，cd到安装目录sbin下
+
+
+::查询服务状态
+rabbitmqctl status
+ 
+ 
+::列举虚拟主机列表
+rabbitmqctl list_vhosts
+::列举用户列表
+rabbitmqctl list_users
+ 
+:: 添加用户和密码
+rabbitmqctl  add_user  hao  abc123
+ 
+:: 设置权限  
+rabbitmqctl  set_permissions  yy  ".*"  ".*"  ".*"
+ 
+:: 分配用户组
+rabbitmqctl  set_user_tags yy administrator
+ 
+:: 删除guest用户
+rabbitmqctl delete_user guest
+::修改用户密码
+rabbitmqctl change_password {username}  {newpassowrd}

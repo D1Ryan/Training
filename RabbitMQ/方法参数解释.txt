@@ -1,0 +1,97 @@
+direct：  直连模式（精确匹配模式）
+topic:     主题模式（模糊匹配模式）
+fanout:   分发模式（一个消息分发到多个队列）
+
+
+
+QueueDeclare
+
+queue 队列名称
+durable 队列是否持久化.false:队列在内存中,服务器挂掉后,队列就没了;true:服务器重启后,队列将会重新生成.注意:只是队列持久化,不代表队列中的消息持久化!!!!
+exclusive 队列是否专属,专属的范围针对的是连接,也就是说,一个连接下面的多个信道是可见的.对于其他连接是不可见的.连接断开后,该队列会被删除.注意,不是信道断开,是连接断开.并且,就算设置成了持久化,也会删除.
+autoDelete 当所有消费者客户端连接断开时是否自动删除队列.
+arguments 队列的参数配置
+
+
+arguments：
+
+Message TTL : 消息生存期  x-message-ttl   一个队列中的消息,在被丢弃之前能够存活多少毫秒.( key 为 "x-message-ttl").通俗讲就是,队列中的消息的生存周期,单位毫秒.
+Auto expire : 队列生存期  x-expires    队列多长时间(毫秒)没有被使用(访问)就会被删除.换个说法就是,当队列在指定的时间内没有被使用(访问)就会被删除.
+Max length : 队列可以容纳的消息的最大条数     x-max-length      队列可以容纳的消息的最大条数,超过这个条数,队列头部的消息将会被丢弃.
+Max length bytes : 队列可以容纳的消息的最大字节数 x-max-length-bytes   队列可以容纳的消息的最大字节数,超过这个字节数,队列头部的消息将会被丢弃.
+Overflow behaviour : 队列中的消息溢出后如何处理   x-overflow      队列中的消息溢出时,如何处理这些消息.要么丢弃队列头部的消息,要么拒绝接收后面生产者发送过来的所有消息.
+Dead letter exchange : 溢出的消息需要发送到绑定该死信交换机的队列    x-dead-letter-exchange       该参数值为一个(死信)交换机的名称,当队列中的消息的生存期到了,或者因长度限制被丢弃时,消息会被推送到(绑定到)这台交换机(的队列中),而不是直接丢掉. 
+Dead letter routing key : 溢出的消息需要发送到绑定该死信交换机,并且路由键匹配的队列   {"x-dead-letter-routing-key","test" }
+Maximum priority : 最大优先级  {"x-max-priority",255 }
+Lazy mode : 懒人模式  {"x-queue-mode","lazy" }     设置队列为懒人模式.该模式下的队列会先将交换机推送过来的消息(尽可能多的)保存在磁盘上,以减少内存的占用.当消费者开始消费的时候才加载到内存中;如果没有设置懒人模式,队列则会直接利用内存缓存,以最快的速度传递消息.
+Master locator : 
+
+
+
+BasicPublish
+
+basicProperties: null, //该条消息的配置
+body: Encoding.Default.GetBytes(msg) //消息字节数组
+exchange: "", //交换机名称
+routingKey: QueueName, //路由键
+mandatory: false//当为true时,如果exchange根据自身类型和第2个参数(routeKey)无法找到一个符合条件的queue,那么会将消息返还给生产者;当为false时,出现上述情形broker会直接将消息扔掉.
+
+
+BasicGet
+queue: QueueName, //队列名称
+autoAck: true //应答模式，true：自动应答，即消费者获取到消息，该消息就会从队列中删除掉，false：手动应答，当从队列中取出消息后，需要程序员手动调用方法应答，如果没有应答，该消息会一直存在队列中.
+
+
+basicProperties:
+
+content_type 消息内容的类型,如 "application/json"
+content_encoding 消息内容的编码格式
+priority 消息的优先级,上面文章已经讲过了.
+correlation_id 用于将RPC响应与请求相关联.
+reply_to 回调队列
+expiration 消息过期时间,单位毫秒.该参数值优先级>队列参数设置中的消息生存期
+message_id 消息id
+timestamp 消息的时间戳
+type： 类型
+user_id: 用户id
+app_id： 应用程序id
+cluster_id: 集群id
+
+
+
+
+
+
+
+      Broker：简单来说就是消息队列服务器实体。
+
+　　Exchange：消息交换机，它指定消息按什么规则，路由到哪个队列。
+
+　　Queue：消息队列载体，每个消息都会被投入到一个或多个队列。
+
+　　Binding：绑定，它的作用就是把exchange和queue按照路由规则绑定起来。
+
+　　Routing Key：路由关键字，exchange根据这个关键字进行消息投递。
+
+　　vhost：虚拟主机，一个broker里可以开设多个vhost，用作不同用户的权限分离。
+
+　　producer：消息生产者，就是投递消息的程序。
+
+　　consumer：消息消费者，就是接受消息的程序。
+
+　　channel：消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务。
+
+
+消息队列的使用过程，如下：
+
+（1）客户端连接到消息队列服务器，打开一个channel。
+
+（2）客户端声明一个exchange，并设置相关属性。
+
+（3）客户端声明一个queue，并设置相关属性。
+
+（4）客户端使用routing key，在exchange和queue之间建立好绑定关系。
+
+（5）客户端投递消息到exchange。
+
+exchange接收到消息后，就根据消息的key和已经设置的binding，进行消息路由，将消息投递到一个或多个队列里。
