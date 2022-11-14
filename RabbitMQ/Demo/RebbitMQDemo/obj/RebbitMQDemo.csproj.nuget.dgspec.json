@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Works\\Anyue\\Docs\\Demo\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj": {}
+    "C:\\GitHub\\Ryan\\Training\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj": {}
   },
   "projects": {
-    "D:\\Works\\Anyue\\Docs\\Demo\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj": {
+    "C:\\GitHub\\Ryan\\Training\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Works\\Anyue\\Docs\\Demo\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj",
+        "projectUniqueName": "C:\\GitHub\\Ryan\\Training\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj",
         "projectName": "RebbitMQDemo",
-        "projectPath": "D:\\Works\\Anyue\\Docs\\Demo\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj",
-        "packagesPath": "C:\\Users\\Rioan\\.nuget\\packages\\",
-        "outputPath": "D:\\Works\\Anyue\\Docs\\Demo\\RabbitMQ\\Demo\\RebbitMQDemo\\obj\\",
+        "projectPath": "C:\\GitHub\\Ryan\\Training\\RabbitMQ\\Demo\\RebbitMQDemo\\RebbitMQDemo.csproj",
+        "packagesPath": "C:\\Users\\ryan.dai\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\Ryan\\Training\\RabbitMQ\\Demo\\RebbitMQDemo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Rioan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ryan.dai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,8 +27,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Works\\MF\\nugetpackages": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://re-artifactory.gdotkubenp.com/artifactory/api/nuget/GD_Common": {},
+          "https://re-artifactory.gdotkubenp.com/artifactory/api/nuget/GD_Common": {}
         },
         "frameworks": {
           "netcoreapp2.2": {
@@ -65,7 +68,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,25 +1,53 @@
-��CMD���cd����װĿ¼sbin��
+打开CMD命令，cd到安装目录sbin下
+
+rabbitmq-plugins.bat enable rabbitmq_management
 
 
-::��ѯ����״̬
+::查询服务状态
 rabbitmqctl status
  
  
-::�о����������б�
+::列举虚拟主机列表
 rabbitmqctl list_vhosts
-::�о��û��б�
+::列举用户列表
 rabbitmqctl list_users
  
-:: �����û�������
+:: 添加用户和密码
 rabbitmqctl  add_user  hao  abc123
  
-:: ����Ȩ��  
+:: 设置权限  
 rabbitmqctl  set_permissions  yy  ".*"  ".*"  ".*"
  
-:: �����û���
+:: 分配用户组
 rabbitmqctl  set_user_tags yy administrator
  
-:: ɾ��guest�û�
+:: 删除guest用户
 rabbitmqctl delete_user guest
-::�޸��û�����
+::修改用户密码
 rabbitmqctl change_password {username}  {newpassowrd}
+
+================================================================
+
+默认用户名和密码都是guest
+登陆即可。
+安装步骤暂时就写这么多，本次安装是为了实现spring cloud的消息总线。后续用到了里面的具体内容和知识会再进行记录的。
+
+
+安装报错情况：
+rabbitmq-plugins enable rabbitmq_management
+rabbitmq_magagement
+Error:
+{:plugins_not_found, [:rabbitmq_magagement]}
+
+解决办法：
+命令换为：
+rabbitmq-plugins.bat enable rabbitmq_management
+
+=================================================================
+
+还未解决的情况，按顺序执行以下命令
+rabbitmq-service install
+rabbitmq-service start
+rabbitmqctl status
+//启动管理后台
+rabbitmq-plugins.bat enable rabbitmq_management
